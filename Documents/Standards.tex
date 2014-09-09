@@ -1,0 +1,81 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{a4wide}
+\usepackage{acronym}
+\usepackage{graphicx}
+\usepackage[title,titletoc,toc]{appendix}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{3cm}
+{\LARGE\bf Standards Plan}\\
+\vspace{1.5cm}
+{\large\bf for}\\
+\vspace{1.5cm}
+{\LARGE\bf The Java Draw Project}\\
+\vspace{5cm}
+Prepared by William Reid\\
+\vspace{1cm}
+School of Computer Science,\\
+The University of Adelaide\\
+\vspace{1cm}
+\today
+\end{center}
+\end{titlepage}
+%\thispagestyleempty
+
+\section{Quality and Readability Standards}
+\subsection{File log conventions}
+Inherent in a large system is a large collection of files. As to maintain consistency, each file must contain its own header of comments. The following details the comment conventions.
+
+Format:\\
+/*\\
+\hspace*{1.5pt} \** Author(s)\\
+\hspace*{1.5pt} \** Date created\\
+\hspace*{1.5pt} \** Sub-system\\
+\hspace*{1.5pt} \** Date/Time updated\\
+\hspace*{1.5pt} \** Purpose\\
+\hspace*{1.5pt} \**/
+
+\begin{enumerate}
+\item Author: Name \& Student ID
+\item Date created: Date file created
+\item Sub-system: Short description of what sub-system it is a part of
+\item Date/Time updated: Date file most recently updated
+\item Purpose: Short description of the files purpose\\*
+\end{enumerate}
+
+\subsection{File log conventions}
+To maintain consistency, readability and maintainability, each function must contain its own set of comments above its declaration. The following details the comment conventions.\\
+
+Format:\\
+/**\\
+\hspace*{1.5pt} \** Purpose\\
+\hspace*{1.5pt} \** Short explanation\\
+\hspace*{1.5pt} \** @param - Parameter type and an explanation of its purpose (new line for each parameter)\\
+\hspace*{1.5pt} \** @return - Return type and explanation of why it is being returned\\
+\hspace*{1.5pt} \**/
+
+
+\newpage
+\subsection{Function/Variable Naming}
+To further ensure consistency and readability, each function and variable name will follow a simple convention explained below:
+
+\subsubsection{Function Names}
+\begin{enumerate}
+\item Will use camel case i.e. checkForFiles()
+\item Must not be abbreviated i.e. avg must be average
+\end{enumerate}
+
+\subsubsection{Variable Names}
+\begin{enumerate}
+\item Will use underscores rather than camel case i.e. brightness\_value
+\item Must not be capitalised, but may contain capitals where applicable
+\item Must not be abbreviated i.e. avg must be average
+\end{enumerate}
+
+
+
+\end{document}
