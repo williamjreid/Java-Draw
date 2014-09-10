@@ -1,18 +1,28 @@
-public class DrawFrame extends Jframe{
-	public DrawFrame(){
+import javax.swing.JFrame;
+import java.awt.Color;
 
+
+public class DrawFrame extends JFrame{
+	public DrawFrame(){
+		super("Draw window");
+		defaultSetup(800,600);
 	}
 
-	public DrawFrame(int a, int b){
-		int width = 800;
-		int height = 600;
+	public DrawFrame(int width, int height){
+		super("Draw window");
+		defaultSetup(width,height);
+	}
+
+	private void defaultSetup(int width, int height){
 		Color background = Color.white;
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(width, height);
+		this.setBackground(background);
+		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 
-		Jframe frame = new JFrame("Draw Window");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(width, height);
-		frame.setBackground(background);
-
+		// add JPanel to the contentPane
+		this.getContentPane().add(new DrawPanel());
 		
 	}
 }
