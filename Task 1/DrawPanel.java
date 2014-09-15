@@ -20,8 +20,10 @@ public class DrawPanel extends JPanel{
 		this.setBackground(background);
 	}
 
-	private void addShape(Graphics line){
-		line.setColor(Color.green);
-		line.drawLine(50,50,100,100);
+	protected void paintComponent(Graphics g){
+		Color color = Color.green;
+		g.drawLine(50,50,100,100);
+		g.setColor(color);
 	}
+
 }
