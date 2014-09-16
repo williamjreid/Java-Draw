@@ -1,6 +1,6 @@
 /*
 * Author: Yi-Tung Huang a1678019
-* Date Created: 09/09/2014
+* Date Created: 16/09/2014
 * Subsystem: DrawPanel is a subsystem of Draw. DrawPanel is a platform where objects
 * are drawn onto and it is placed on the object DrawFrame.
 * Date/Time updated: 16/09/2014
@@ -19,7 +19,6 @@ public class DrawPanel extends JPanel{
 	* 			   default size 800*600
 	*/
 	public DrawPanel(){
-		// super(layout manager)
 		super(null);
 		defaultSetup(800,600);
 	}
@@ -42,22 +41,21 @@ public class DrawPanel extends JPanel{
 	* @param - height
 	*/
 	private void defaultSetup(int width, int height){
-		Color background = Color.blue;
-		this.setSize(width,height);
+		Color background = Color.yellow;
 		this.setBackground(background);
+		this.setSize(width,height);
 	}
 
 	/*
-	* Description: paintComponent draws a thick green line from (50,50) to 
-	* (100,100) on the JPanel object.
+	* Description: paintComponent draws a thick red line from (30,30) to 
+	* (150,150) on the JPanel object.
 	* @param - g - Graphics object to paint objects on.
 	*/
 	protected void paintComponent(Graphics g){
-		Color color = Color.green;
-		g.setColor(color);
+		Color color = Color.red;
 		Graphics2D g2D = (Graphics2D) g;
+		g2D.setColor(color);
 		g2D.setStroke(new BasicStroke(10));
-		g2D.drawLine(50,50,500,500);
+		g.drawLine(30,30,150,150);
 	}
-
 }
