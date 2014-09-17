@@ -14,6 +14,7 @@ import java.awt.Graphics;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 
 public class DrawFrame extends JFrame{
@@ -49,10 +50,11 @@ public class DrawFrame extends JFrame{
 		this.setSize(width,height);
 		this.setBackground(background);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.addMenus();
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
 		this.getContentPane().add(new DrawPanel());
-		this.addMenus();
+		
 
 	}
 
@@ -63,13 +65,24 @@ public class DrawFrame extends JFrame{
 	*/
 	private void addMenus(){
 		JMenuBar menuBar = new JMenuBar(); 
+
 		JMenu file = new JMenu("File");
 		JMenu edit = new JMenu("Edit");
+
 		JMenuItem open = new JMenuItem("Open <Ctrl-o>");
 		JMenuItem save = new JMenuItem("Save <Ctrl-s>");
 		JMenuItem close = new JMenuItem("Close <Ctrl-x>");
-		JMenuItem new_menuItem = new JMenuItem("New <Ctrl-n>");
+
+		JMenuItem new_menu_item = new JMenuItem("New <Ctrl-n>");
 		JMenuItem delete = new JMenuItem("Delete");
+
+		/* adding shortcuts to the menuitems (accelerator for Ctrl + key, mnemonics for Alt + key)*/
+		open.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O,java.awt.Event.CTRL_MASK));
+		save.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S,java.awt.Event.CTRL_MASK));
+		close.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X,java.awt.Event.CTRL_MASK));
+		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
+
+
 
 		/* adding menus to menuBar */
 		menuBar.add(file);
@@ -81,10 +94,17 @@ public class DrawFrame extends JFrame{
 		file.add(close);
 
 		/* adding menuItems to menu 'Edit'*/
-		edit.add(new_menuItem);
+		edit.add(new_menu_item);
 		edit.add(delete);
 
 		this.setJMenuBar(menuBar);
 
+	}
+}
+
+private class Listener implements ActionListener{
+	public void actionPerformed(ActionEvent action) {
+	//perform functions in here related to this action
+		
 	}
 }
