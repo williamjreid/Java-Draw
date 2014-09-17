@@ -15,6 +15,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class DrawFrame extends JFrame{
@@ -82,6 +84,17 @@ public class DrawFrame extends JFrame{
 		close.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X,java.awt.Event.CTRL_MASK));
 		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
 
+		/* adding actionlisteners to each of the menuitems */
+		Listener open_listener = new Listener();
+		Listener save_listener = new Listener();
+		Listener close_listener = new Listener();
+		Listener new_menu_item_listener = new Listener();
+		Listener delete_listener = new Listener();
+		open.addActionListener(open_listener);
+		save.addActionListener(save_listener);
+		close.addActionListener(close_listener);
+		new_menu_item.addActionListener(new_menu_item_listener);
+		delete.addActionListener(delete_listener);
 
 
 		/* adding menus to menuBar */
@@ -100,11 +113,12 @@ public class DrawFrame extends JFrame{
 		this.setJMenuBar(menuBar);
 
 	}
+
+	private class Listener implements ActionListener{
+		public void actionPerformed(ActionEvent action, String name) {
+		//perform functions in here related to this action
+			System.out.println(name);
+		}
+	}	
 }
 
-private class Listener implements ActionListener{
-	public void actionPerformed(ActionEvent action) {
-	//perform functions in here related to this action
-		
-	}
-}
