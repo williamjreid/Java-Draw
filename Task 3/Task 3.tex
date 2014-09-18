@@ -65,7 +65,9 @@ In your \textit{DrawPanel} class, remove the code that draws a line from the pai
 http://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
 
 \subsection{Adding Multiple Shapes}
+In your \textit{DrawPanel} class, add a function \textit{addShapes()}. This method must create at least 2 shapes and store them in some local variable (perhaps an Array or ArrayList). Choose your data structure carefully as we want the system to be as extendable as possible.\\
 
+In your \textit{paintComponent()} method, modify the code such that it extracts every shape from the data structure you have created and adds them to the drawing surface.
 
 \newpage
 \section{Reading Files - (5 marks)}
@@ -74,12 +76,29 @@ Create a class called \textit{ShapeParser.java}. The constructor for this class 
 \item \textit{readFile} - Will take in a file name as a string, and open it for reading. It will also return an ArrayList of Shapes.
 \item \textit{writeFile} - Will take in a file name and an ArrayList of Shapes. It will write these Shapes to a new file, given by the supplied filename.
 \end{enumerate}
+For now, your \textit{writeFile} function does not have to do anything, we will be adding to this later. The \textit{readFile} must open a text file for reading and create the shapes described in the text file. A sample text file is supplied with this task - it is in the format:\\
+
+type: (X1, Y1), (X2, Y2), ... (Xn, Yn), colour\\*
+\\
+points (X1, Y1), (X2, Y2) are required but the remaining points are optional and may not be specified for a shape. To open the file, you will need to use Java's BufferedReader class - the following reference should assist you:\\
+
+http://stackoverflow.com/questions/3806062/how-to-open-a-txt-file-and-read-numbers-in-java\\*
+\\
+From here, you will need to use the functions contained in Java's String library to split up the line to obtain its information. With this information you should create a new shape and add it to a local data structure, before returning it to the caller. 
 
 \subsection{Modifying Draw}
+Modify your \textit{Draw} constructor to create a \textit{ShapeParser} object. Pass it the sample file supplied with this task and assign the returned data structure to a local variable. To test that it works, iterate through the return data structure and print out the name and colour of each shape (this can be performed in the \textit{Draw} constructor.
 
 \subsection{Modifying DrawFrame}
+Add an \textit{addShape()} method to the \textit{DrawFrame} class that takes in a data structure containing Shape objects. Cut the code from the \textit{Draw} constructor that prints out the name and colour of each shape into this new function. Adjust the \textit{Draw} constructor to pass the data structure containing the shapes to the \textit{DrawFrame} class.
+
+\textit{Note*: The DrawFrame class does not need to store this data structure locally!}
 
 \subsection{Modifying DrawPanel}
+Modify the \textit{addShape()} method in the \textit{DrawPanel} class such that it takes in a data structure containing Shape objects. Remove the code from the \textit{Draw} constructor that prints out the name and colour of each shape. Adjust the \textit{DrawFrame} function we created in the previous exercise to pass the data structure containing the shapes to the \textit{DrawPanel} class. The DrawPanel class MUST store this data locally - You may need to adjust the DrawPanel's \textit{addShape()} function to no longer create new Shapes.
+
+\subsubsection{Testing}
+If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in exercise BLAH should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}
 
 
 \newpage
