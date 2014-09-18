@@ -85,11 +85,11 @@ public class DrawFrame extends JFrame{
 		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
 
 		/* adding actionlisteners to each of the menuitems */
-		MyActionListener open_listener = new Listener();
-		MyActionListener save_listener = new Listener();
-		MyActionListener close_listener = new Listener();
-		MyActionListener new_menu_item_listener = new Listener();
-		MyActionListener delete_listener = new Listener();
+		MyActionListener open_listener = new MyActionListener();
+		MyActionListener save_listener = new MyActionListener();
+		MyActionListener close_listener = new MyActionListener();
+		MyActionListener new_menu_item_listener = new MyActionListener();
+		MyActionListener delete_listener = new MyActionListener();
 		open.addActionListener(open_listener);
 		save.addActionListener(save_listener);
 		close.addActionListener(close_listener);
