@@ -3,7 +3,7 @@
 * Date Created: 16/09/2014
 * Subsystem: DrawFrame is a subsystem of Draw. DrawFrame is a window where the
 * DrawPanel object is placed onto.
-* Date/Time updated: 16/09/2014
+* Date/Time updated: 18/09/2014
 * Description: DrawFrame is a class extended from JFrame. DrawFrame creates a
 * coloured window object where the DrawPanel object is placed onto.
 */
@@ -21,8 +21,8 @@ import java.awt.event.ActionEvent;
 
 public class DrawFrame extends JFrame{
 	/*
-	* Description: constructor that creates DrawFrame object of default
-	* 			   size 800*600
+	* constructor that creates DrawFrame object of default
+	* size 800*600
 	*/
 	public DrawFrame(){
 		super("Draw Window");
@@ -30,8 +30,8 @@ public class DrawFrame extends JFrame{
 	}
 
 	/*
-	* Description: constructor that creates DrawFrame object with size of
-	* 			   input width and height
+	* constructor that creates DrawFrame object with size of
+	* input width and height
 	* @param width - width of the frame
 	* @param height - height of the frame 
 	*/
@@ -42,8 +42,8 @@ public class DrawFrame extends JFrame{
 	}
 
 	/*
-	* Description: defaultSetup sets up the JFrame with default settings:
-	* 			   black background and size with the input width and height.
+	* defaultSetup sets up the JFrame with default settings:
+	* black background and size with the input width and height.
 	* @param - width - width of the frame
 	* @param - height - height of the frame
 	*/
@@ -61,9 +61,9 @@ public class DrawFrame extends JFrame{
 	}
 
 	/*
-	* Description: addMenus adds a menubar to the DrawFrame object with menus 
-	*              File and Edit with menuitems Open, Save, Close and New, 
-	*              Delete respectively.
+	* addMenus adds a menubar to the DrawFrame object with menus 
+	* File and Edit with menuitems Open, Save, Close and New, 
+	* Delete respectively.
 	*/
 	private void addMenus(){
 		JMenuBar menuBar = new JMenuBar(); 
@@ -85,11 +85,11 @@ public class DrawFrame extends JFrame{
 		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
 
 		/* adding actionlisteners to each of the menuitems */
-		Listener open_listener = new Listener();
-		Listener save_listener = new Listener();
-		Listener close_listener = new Listener();
-		Listener new_menu_item_listener = new Listener();
-		Listener delete_listener = new Listener();
+		MyActionListener open_listener = new Listener();
+		MyActionListener save_listener = new Listener();
+		MyActionListener close_listener = new Listener();
+		MyActionListener new_menu_item_listener = new Listener();
+		MyActionListener delete_listener = new Listener();
 		open.addActionListener(open_listener);
 		save.addActionListener(save_listener);
 		close.addActionListener(close_listener);
@@ -114,8 +114,11 @@ public class DrawFrame extends JFrame{
 
 	}
 
-	
-	private class Listener implements ActionListener{
+	/*
+	 * Listener class that handles action events when menu
+	 * items are selected
+	 */
+	private class MyActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent action) {
 		//perform functions in here related to this action
 			System.out.println("Hello");

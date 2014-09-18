@@ -3,7 +3,7 @@
 * Date Created: 16/09/2014
 * Subsystem: DrawPanel is a subsystem of Draw. DrawPanel is a platform where objects
 * are drawn onto and it is placed on the object DrawFrame.
-* Date/Time updated: 16/09/2014
+* Date/Time updated: 18/09/2014
 * Description: DrawPanel is a class extended from JPanel. The draw functions 
 * of JPanel are overridden. DrawPanel is a platform where objects are drawn onto.
 */
@@ -14,6 +14,7 @@ import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 public class DrawPanel extends JPanel{
 	/*
@@ -44,10 +45,12 @@ public class DrawPanel extends JPanel{
 	*/
 	private void defaultSetup(int width, int height){
 		MyMouseListener mouse_listener = new MyMouseListener();
+		MyMouseMotionListener mouse_motion_listener = new MyMouseMotionListener();
 		Color background = Color.yellow;
 		this.setBackground(background);
 		this.setSize(width,height);
 		this.addMouseListener(mouse_listener);
+		this.addMouseMotionListener(mouse_motion_listener);
 	}
 
 	/*
@@ -64,44 +67,92 @@ public class DrawPanel extends JPanel{
 	}
 
 	/*
+	* private MouseListener class that handles mouse events 
+	* where mouse is pressed, released, clicked on the DrawPanel
+	* and when the mouse enters and exits the DrawPanel
 	*/
 	private class MyMouseListener implements MouseListener{
-		/* function called when mouse is pressed (returns the
-		 * coordinates of the mouse) */
+		/* 
+		 *function called when mouse is pressed (returns the
+		 * coordinates of the mouse) 
+		 */
 		public void mousePressed(MouseEvent e){
 			printClick("Mouse pressed",e);
 		}
 
-		/* function called when mouse is released (returns the
-		 * coordinates of the mouse) */
+		/* 
+		 * function called when mouse is released (returns the
+		 * coordinates of the mouse)
+		 */
 		public void mouseReleased(MouseEvent e){
 			printClick("Mouse released",e);
 		}
 
-		/* function called when mouse is clicked (returns the
-		 * coordinates of the mouse) */
+		/* 
+		 * function called when mouse is clicked (returns the
+		 * coordinates of the mouse) 
+		 */
 		public void mouseClicked(MouseEvent e){
 			printClick("Mouse clicked",e);
 		}
 
-		/* function called when mouse enters the panel (returns 
-		 * the coordinates of the mouse) */
+		/* 
+		 * function called when mouse enters the panel (returns 
+		 * the coordinates of the mouse) 
+		 */
 		public void mouseEntered(MouseEvent e){
 			printClick("Mouse entered",e);
 		}
 
-		/* function called when mouse exits the panel (returns 
-		 * the coordinates of the mouse) */
+		/* 
+		 * function called when mouse exits the panel (returns 
+		 * the coordinates of the mouse) 
+		 */
 		public void mouseExited(MouseEvent e){
 			printClick("Mouse exited",e);
 		}
 
-		/* function that prints out the description and the 
-		 * coordinates of the mouse event. */
+		/* 
+		 * function that prints out the description and the 
+		 * coordinates of the mouse event. 
+		 */
 		public void printClick(String event_description, MouseEvent e){
 			int x = e.getX();
 			int y = e.getY();
 			String output = event_description + " at: ("+x+","+y+")";
+			System.out.println(output);
+		}
+	}
+
+	/*
+	 * private MouseMotionListener class that handles mouse events
+	 * when mouse moves with or without being pressed on the DrawPanel
+	 */
+	private class MyMouseMotionListener implements MouseMotionListener{
+		/* 
+		 * function called when mouse moved without clicking (returns 
+		 * the coordinates of the mouse) 
+		 */
+		public void mouseMoved(MouseEvent e){
+			printEvent("Mouse moved",e);
+		}
+
+		/* 
+		 * function called when mouse moved while being pressed (returns 
+		 * the coordinates of the mouse when it was pressed) 
+		 */
+		public void mouseDragged(MouseEvent e){
+			printEvent("Mouse dragged",e);
+		}
+
+		/* 
+		 * function that prints out the description and the 
+		 * coordinates of the mouse event. 
+		 */
+		public void printEvent(String event_description, MouseEvent e){
+			int x = e.getX();
+			int y = e.getY();
+			String output = event_description+ " at: ("+x+","+y+")";
 			System.out.println(output);
 		}
 	}
