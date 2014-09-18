@@ -15,8 +15,8 @@ import java.awt.Graphics;
 
 public class DrawFrame extends JFrame{
 	/*
-	* Description: constructor that creates DrawFrame object of default
-	* 			   size 800*600
+	* constructor that creates DrawFrame object of default
+	* size 800*600
 	*/
 	public DrawFrame(){
 		super("Draw Window");
@@ -24,8 +24,8 @@ public class DrawFrame extends JFrame{
 	}
 
 	/*
-	* Description: constructor that creates DrawFrame object with size of
-	* 			   input width and height
+	* constructor that creates DrawFrame object with size of
+	* input width and height
 	* @param width - width of the frame
 	* @param height - height of the frame 
 	*/
@@ -35,8 +35,8 @@ public class DrawFrame extends JFrame{
 	}
 
 	/*
-	* Description: defaultSetup sets up the JFrame with default settings:
-	* 			   grey background and size with the input width and height.
+	* defaultSetup sets up the JFrame with default settings:
+	* grey background and size with the input width and height.
 	* @param - width - width of the frame
 	* @param - height - height of the frame
 	*/

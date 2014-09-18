@@ -15,8 +15,8 @@ import java.awt.BasicStroke;
 
 public class DrawPanel extends JPanel{
 	/*
-	* Description: constructor that creates DrawPanel object of
-	* 			   default size 800*600
+	* constructor that creates DrawPanel object of
+	* default size 800*600
 	*/
 	public DrawPanel(){
 		// super(layout manager)
@@ -25,8 +25,8 @@ public class DrawPanel extends JPanel{
 	}
 
 	/*
-	* Description: constructor that creates DrawPanel object with size of
-	* 			   input width and height
+	* constructor that creates DrawPanel object with size of
+	* input width and height
 	* @param width - width of the frame
 	* @param height - height of the frame 
 	*/
@@ -36,7 +36,7 @@ public class DrawPanel extends JPanel{
 	}
 
 	/*
-	* Description: defaultSetup sets up the JPanel with default settings:
+	* defaultSetup sets up the JPanel with default settings:
 	* blue background and size with the input width and height.
 	* @param - width
 	* @param - height
@@ -48,7 +48,7 @@ public class DrawPanel extends JPanel{
 	}
 
 	/*
-	* Description: paintComponent draws a thick green line from (50,50) to 
+	* paintComponent draws a thick green line from (50,50) to 
 	* (100,100) on the JPanel object.
 	* @param - g - Graphics object to paint objects on.
 	*/

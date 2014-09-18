@@ -8,11 +8,16 @@
 * drawn inside the window.
 */
 public class Draw{
-	
+	/*
+	* constructor that creates a DrawFrame object.
+	*/
 	public Draw(){
 		DrawFrame frame = new DrawFrame();
 	}
 
+	/*
+	* main driver function of Task 1
+	*/
 	public static void main(String[] args){
 		new Draw();
 
