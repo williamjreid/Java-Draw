@@ -85,12 +85,19 @@ http://stackoverflow.com/questions/3806062/how-to-open-a-txt-file-and-read-numbe
 \\
 From here, you will need to use the functions contained in Java's {\bf String} library to split up the line to obtain its information. With this information you should create a new shape and add it to a local data structure. Do this for every ling you find before returning the list of shapes to the caller {\bf (2 marks)}. 
 
+\subsection*{Exceptions}
+An exception is what most people would call an error. It is usually something that a program cannot automatically handle on its own and requires guidance to repair. If no such guidance is available - the program will crash. {\bf Catching} exceptions tells the program that we are able to provide it some guidance when  specific errors occur. The following tutorial may help your understanding:\\
+
+http://docs.oracle.com/javase/tutorial/essential/exceptions/\\*
+\\
+Sometimes classes require us to catch exceptions - the BufferedReader class is one such example. It is important that we catch these two primary exceptions when reading in a file as they frequently occur. For each of these exceptions, just print out a nice error message briefly stating what the problem is, before exiting the program - \textit{System.exit(1)};
+
+\newpage
 \subsection{Modifying DrawFrame - (10 marks)}
 Modify your \textit{DrawFrame} constructor to create a \textit{ShapeParser} object (place this code after the DrawPanel is added to the frame) {\bf (2 marks)}. Pass it the sample file supplied with this task and assign the returned data structure to a local variable {\bf (4 marks)}. To test that it works, iterate through the returned data structure and print out the name and colour of each shape (this can be performed in the \textit{DrawFrame} constructor) {\bf (4 marks)}.
 
 \textit{Note*: The DrawFrame class does not need to store this data structure locally!}
 
-\newpage
 \subsection{Modifying DrawPanel - (8 marks)}
 Modify the \textit{addShape()} method in the \textit{DrawPanel} class such that it takes in a data structure containing Shape objects {\bf (2 marks)}. Remove the code from the \textit{DrawFrame} constructor that prints out the name and colour of each shape and place this into the DrawPanel \textit{addShape()} method {\bf (1 mark)}.\\
 
@@ -98,8 +105,10 @@ Adjust the code in the \textit{DrawFrame} constructor such that the creation of 
 
 Pass the DrawPanel the data structure containing the shapes obtained from the \textit{ShapeParser} class. The DrawPanel class MUST store this data locally - you will need to adjust the DrawPanel's \textit{addShape()} function to no longer create new Shapes, if you have not already done so {\bf (3 marks)}.
 
-\subsubsection{Testing}
-If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in {\bf Exercise 3.2} should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}
+\subsubsection{Testing - (2 marks)}
+If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in {\bf Exercise 3.2} should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}\\
+
+To test your program further, try and pass the \textit{ShapeParser} a file that does not exist and see if it behaves as we expect.
 
 
 \newpage
@@ -108,7 +117,7 @@ If everything has been named and implemented correctly, the DrawPanel should now
 
 Review your code for layout, structure, comments and how it measures against the supplied standards. When you have completed this check, ensure it is uploaded to the Git repository (you should be committing your work once you have completed each class).\\
 
-Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 88}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
+Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 90}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
 
 \vspace{0.5cm}
 \section{Program Understanding}

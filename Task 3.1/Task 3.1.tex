@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{a4wide}
+\usepackage{acronym}
+\usepackage{graphicx}
+\usepackage[title,titletoc,toc]{appendix}
+
+
+\begin{document}
+\begin{center}
+{\LARGE\bf Task 3 - Extending the ShapeParser}\\
+\vspace{0.5cm}
+Prepared by William Reid\\
+\today
+\end{center}
+%\thispagestyleempty
+
+\vspace{0.5cm}
+\section{Modifying Class Functions}
+\subsection{Shape Class}
+Create a function called \textit{print()} that returns a string containing the information of the shape. It should be in the same format as it was read in:\\
+
+\textit{type: (X1, Y1), (X2, Y2), ... (Xn, Yn), colour}
+
+\subsection{DrawPanel Class}
+Create a function (name of your choosing) that returns the list of shapes that the DrawPanel class has stored locally.
+
+\subsection{DrawFrame Class}
+Modify the constructor to get all the shapes stored in the DrawPanel and send them to the ShapeParser's \textit{writeFile()} method. Be careful where you place this code as incorrectly placing the function calls will cause the program to fail.\\
+
+Verify this works by adding code to the \textit{writeFile()} method that calls (and prints out the returned string) the \textit{print()} method we made earlier for each shape.
+
+\section{Writing to File}
+Now that we can get the information of each shape, we want to write it out to a file. This can be done using Java's {\bf BufferedWriter} class. The following resource provides a good example of how to implement the required features:\\
+
+http://www.mkyong.com/java/how-to-write-to-file-in-java-bufferedwriter-example/
+
+\subsection{Checking the Output}
+If you have correctly implemented the write methods, when you run the code you should obtain a new text file (that you may name whatever you wish) that looks identical to the sample file provided to you.
+
+
+\newpage
+\subsubsection{Testing - (2 marks)}
+If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in {\bf Exercise 3.2} should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}\\
+
+To test your program further, try and pass the \textit{ShapeParser} a file that does not exist and see if it behaves as we expect.
+
+
+\newpage
+\section{Checking your Code (10 marks)}
+\textit{*Note: For each file - 1 mark each goes to comments, layout/structure and conforming to the function/variable naming standards. This does not include Draw.java as this has not been changed. DrawFrame.java and DrawPanel.java will not be marked on layout/structure}\\
+
+Review your code for layout, structure, comments and how it measures against the supplied standards. When you have completed this check, ensure it is uploaded to the Git repository (you should be committing your work once you have completed each class).\\
+
+Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 90}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
+
+\vspace{0.5cm}
+\section{Program Understanding}
+Do you know what we have achieved in these classes? Do you understand how files are read in what we can achieve with exceptions? Create a document called \textit{Questions.txt} that lists questions of things you need clarification on. It may be useful to make this document before you start such that you can add and remove to it as you continue through these tasks.
+
+
+\end{document}
