@@ -16,7 +16,7 @@ Prepared by William Reid\\
 
 \vspace{0.5cm}
 \section{JFileChooser}
-When opening and saving files, Java provides us with a way of graphically choosing files and folders. Instead of designing our own interface for opening and saving files, the JFileChooser package provides much of this functionality for us. In addition with the FileNameExtensionFilter class, the code below opens an interface element for the user to select either a JPG or GIF image to open. It then prints out the name of the file chosen (if one was chosen).
+When opening and saving files, Java provides us with a way of graphically choosing files and folders. Instead of designing our own interface for opening and saving files, the {\bf JFileChooser} package provides much of this functionality for us. In addition with the {\bf FileNameExtensionFilter} class, the code below opens an interface element for the user to select either a JPG or GIF image to open. It then prints out the name of the file chosen (if one was chosen).
 
 \begin{verbatim}
 JFileChooser chooser = new JFileChooser();
@@ -36,82 +36,83 @@ In your DrawFrame class, add to your listener private classes such that when the
 \\
 For the Open and Save options they must:
 \begin{enumerate}
-\item Allow the user to select only TXT files (2 marks)
-\item Print out the current file chosen (2 marks)
-\item Print the menu option chosen (1 mark)
-\item Print ONLY the menu option chosen when no file is chosen (user clicks ``Cancel'') (2 marks)
+\item Allow the user to select only TXT files {\bf (2 marks)}
+\item Print out the current file chosen {\bf (2 marks)}
+\item Print the menu option chosen {\bf (1 mark)}
+\item Print ONLY the menu option chosen when no file is chosen (user clicks ``Cancel'') {\bf (2 marks)}
 \end{enumerate}
 
-\section{The Shape Class}
-Create a class called \textit{Shape.java} that extends the \textit{Polygon}. This class will hold all information pertaining to every shape we will make in this program. For this exercise, we will assume that all shapes we will make can be defined by one or more lines.\\
+\section{The Shape Class - (18 marks)}
+Create a class called \textit{Shape.java} that extends the \textit{Polygon} class. This class will hold all information pertaining to every shape we will make in this program. For this exercise, we can assume that all shapes we will make can be defined by one or more lines.\\
 \\
 Your Shape class must:
 \begin{itemize}
-\item Be able to store the type of item (``line'', ``square'' etc.)
-\item Be able to store the shape colour
-\item Be able to add and remove X and Y coordinates
-\item Be able to change the colour and stroke of each line
-\item Not be able to change the name of the shape
+\item Be able to store the type of item (``line'', ``square'' etc.) {\bf (2 marks)}
+\item Be able to store the shape colour {\bf (1 mark)}
+\item Be able to add and remove X and Y coordinates {\bf (4 marks)}
+\item Not be able to change the name of the shape {\bf (1 mark)}
 \end{itemize}
-Your class will have two constructors and these will match the two constructors found in the \textit{Polygon} class:\\
+Your class will have two constructors and these will match the two constructors found in the \textit{Polygon} class {\bf (4 marks)}:\\
 
 http://docs.oracle.com/javase/7/docs/api/java/awt/Polygon.html\\
 \\
 Think about how you might be able to use some of the functions provided by \textit{Polygon} instead of creating your own (primarily to do with adding and removing points).
 
-\subsection{Adding Your Shape to DrawPanel}
-In your \textit{DrawPanel} class, remove the code that draws a line from the paintComponent() method. In the same method, create a new line using your \textit{Shape} class. Once you have created your shape, add code that will draw the shape onto the DrawPanel. Methods exist in the Graphics package that may be able to assist you:\\
+\subsection{Adding Your Shape to DrawPanel - (4 marks)}
+In your DrawPanel class, remove the code that draws a line from the \textit{paintComponent()} method. In the same method, create a new line using your \textit{Shape} class. Once you have created your shape, add code that will draw the shape onto the DrawPanel. Methods exist in the {\bf Graphics} package that may be able to assist you:\\
 
 http://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
 
-\subsection{Adding Multiple Shapes}
-In your \textit{DrawPanel} class, add a function \textit{addShapes()}. This method must create at least 2 shapes and store them in some local variable (perhaps an Array or ArrayList). Choose your data structure carefully as we want the system to be as extendable as possible.\\
+\subsection{Adding Multiple Shapes - (8 marks)}
+In your DrawPanel class, add a function \textit{addShapes()}. This method must create at least 2 shapes and store them in some local variable (perhaps an Array or preferably an {\bf ArrayList}). Choose your data structure carefully as we want the system to be as extendible as possible.\\
 
-In your \textit{paintComponent()} method, modify the code such that it extracts every shape from the data structure you have created and adds them to the drawing surface.
+In your \textit{paintComponent()} method, modify the code such that it extracts every shape from the data structure you have created and adds them to the drawing surface {\bf (2 marks)}.
 
 \newpage
-\section{Reading Files - (5 marks)}
+\section{Reading Files - (20 marks)}
 Create a class called \textit{ShapeParser.java}. The constructor for this class does not have to do anything. You will need two other functions:
 \begin{enumerate}
-\item \textit{readFile} - Will take in a file name as a string, and open it for reading. It will also return an ArrayList of Shapes.
-\item \textit{writeFile} - Will take in a file name and an ArrayList of Shapes. It will write these Shapes to a new file, given by the supplied filename.
+\item \textit{readFile} - Will take in a file name as a string, and open it for reading. It will also return an ArrayList of Shapes. {\bf (2 marks)}
+\item \textit{writeFile} - Will take in a file name and an ArrayList of Shapes. It will write these Shapes to a new file, given by the supplied file name. {\bf (2 marks)}
 \end{enumerate}
-For now, your \textit{writeFile} function does not have to do anything, we will be adding to this later. The \textit{readFile} must open a text file for reading and create the shapes described in the text file. A sample text file is supplied with this task - it is in the format:\\
+For now, your \textit{writeFile} function does not have to do anything (please add all required parameters to the function), we will be adding to this later. The \textit{readFile} must open a text file for reading {\bf (6 marks)} and create the shapes described in the text file {\bf (7 marks)}. A sample text file is supplied with this task - it is in the format:\\
 
-type: (X1, Y1), (X2, Y2), ... (Xn, Yn), colour\\*
+\textit{type: (X1, Y1), (X2, Y2), ... (Xn, Yn), colour}\\*
 \\
-points (X1, Y1), (X2, Y2) are required but the remaining points are optional and may not be specified for a shape. To open the file, you will need to use Java's BufferedReader class - the following reference should assist you:\\
+Points \textit{(X1, Y1), (X2, Y2)} are required but the remaining points are optional and may not be specified for a shape. To open the file, you will need to use Java's {\bf BufferedReader} class - the following reference should assist you:\\
 
 http://stackoverflow.com/questions/3806062/how-to-open-a-txt-file-and-read-numbers-in-java\\*
 \\
-From here, you will need to use the functions contained in Java's String library to split up the line to obtain its information. With this information you should create a new shape and add it to a local data structure, before returning it to the caller. 
+From here, you will need to use the functions contained in Java's {\bf String} library to split up the line to obtain its information. With this information you should create a new shape and add it to a local data structure. Do this for every ling you find before returning the list of shapes to the caller {\bf (2 marks)}. 
 
-\subsection{Modifying Draw}
-Modify your \textit{Draw} constructor to create a \textit{ShapeParser} object. Pass it the sample file supplied with this task and assign the returned data structure to a local variable. To test that it works, iterate through the return data structure and print out the name and colour of each shape (this can be performed in the \textit{Draw} constructor.
-
-\subsection{Modifying DrawFrame}
-Add an \textit{addShape()} method to the \textit{DrawFrame} class that takes in a data structure containing Shape objects. Cut the code from the \textit{Draw} constructor that prints out the name and colour of each shape into this new function. Adjust the \textit{Draw} constructor to pass the data structure containing the shapes to the \textit{DrawFrame} class.
+\subsection{Modifying DrawFrame - (10 marks)}
+Modify your \textit{DrawFrame} constructor to create a \textit{ShapeParser} object (place this code after the DrawPanel is added to the frame) {\bf (2 marks)}. Pass it the sample file supplied with this task and assign the returned data structure to a local variable {\bf (4 marks)}. To test that it works, iterate through the returned data structure and print out the name and colour of each shape (this can be performed in the \textit{DrawFrame} constructor) {\bf (4 marks)}.
 
 \textit{Note*: The DrawFrame class does not need to store this data structure locally!}
 
-\subsection{Modifying DrawPanel}
-Modify the \textit{addShape()} method in the \textit{DrawPanel} class such that it takes in a data structure containing Shape objects. Remove the code from the \textit{Draw} constructor that prints out the name and colour of each shape. Adjust the \textit{DrawFrame} function we created in the previous exercise to pass the data structure containing the shapes to the \textit{DrawPanel} class. The DrawPanel class MUST store this data locally - You may need to adjust the DrawPanel's \textit{addShape()} function to no longer create new Shapes.
+\newpage
+\subsection{Modifying DrawPanel - (8 marks)}
+Modify the \textit{addShape()} method in the \textit{DrawPanel} class such that it takes in a data structure containing Shape objects {\bf (2 marks)}. Remove the code from the \textit{DrawFrame} constructor that prints out the name and colour of each shape and place this into the DrawPanel \textit{addShape()} method {\bf (1 mark)}.\\
+
+Adjust the code in the \textit{DrawFrame} constructor such that the creation of the DrawPanel and adding it to the content pane is done in two steps - this will allow us to operate on the DrawPanel from inside the DrawFrame {\bf (2 marks)}.\\
+
+Pass the DrawPanel the data structure containing the shapes obtained from the \textit{ShapeParser} class. The DrawPanel class MUST store this data locally - you will need to adjust the DrawPanel's \textit{addShape()} function to no longer create new Shapes, if you have not already done so {\bf (3 marks)}.
 
 \subsubsection{Testing}
-If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in exercise BLAH should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}
+If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in {\bf Exercise 3.2} should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}
 
 
 \newpage
-\section{Checking your Code (6 marks)}
-\textit{*Note: For each file - 1 mark each goes to comments, layout/structure and conforming to the function/variable naming standards. This does not include Draw.java as this has not been changed.}\\
+\section{Checking your Code (10 marks)}
+\textit{*Note: For each file - 1 mark each goes to comments, layout/structure and conforming to the function/variable naming standards. This does not include Draw.java as this has not been changed. DrawFrame.java and DrawPanel.java will not be marked on layout/structure}\\
 
 Review your code for layout, structure, comments and how it measures against the supplied standards. When you have completed this check, ensure it is uploaded to the Git repository (you should be committing your work once you have completed each class).\\
 
-Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 40}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
+Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 88}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
 
 \vspace{0.5cm}
 \section{Program Understanding}
-Do you know what we have tried to do with implementing {\bf listeners} in these classes? Create a document called \textit{Questions.txt} that lists questions of things you need clarification on. It may be useful to make this document before you start such that you can add and remove to it as you continue through these tasks.
+Do you know what we have achieved in these classes? Do you understand how files are read in what we can achieve with exceptions? Create a document called \textit{Questions.txt} that lists questions of things you need clarification on. It may be useful to make this document before you start such that you can add and remove to it as you continue through these tasks.
 
 
 \end{document}
