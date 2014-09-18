@@ -1,0 +1,98 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{a4wide}
+\usepackage{acronym}
+\usepackage{graphicx}
+\usepackage[title,titletoc,toc]{appendix}
+
+
+\begin{document}
+\begin{center}
+{\LARGE\bf Task 3 - Files and Parsing}\\
+\vspace{0.5cm}
+Prepared by William Reid\\
+\today
+\end{center}
+%\thispagestyleempty
+
+\vspace{0.5cm}
+\section{JFileChooser}
+When opening and saving files, Java provides us with a way of graphically choosing files and folders. Instead of designing our own interface for opening and saving files, the JFileChooser package provides much of this functionality for us. In addition with the FileNameExtensionFilter class, the code below opens an interface element for the user to select either a JPG or GIF image to open. It then prints out the name of the file chosen (if one was chosen).
+
+\begin{verbatim}
+JFileChooser chooser = new JFileChooser();
+    FileNameExtensionFilter filter =
+    	 new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
+    chooser.setFileFilter(filter);
+    int returnVal = chooser.showOpenDialog(parent);
+    if(returnVal == JFileChooser.APPROVE_OPTION) {
+       System.out.println("You chose to open this file: "
+       	 +  chooser.getSelectedFile().getName());
+    }
+\end{verbatim}
+  
+
+\section{Adding a JFileChooser - (10 marks)}
+In your DrawFrame class, add to your listener private classes such that when the \textit{Open} and \textit{Save} functions are used from the menu, they allow the user to graphically pick a file. When the user clicks ``OK'', print out the name of the file (as well as the menu option that was chosen) to the console.\\
+\\
+For the Open and Save options they must:
+\begin{enumerate}
+\item Allow the user to select only TXT files (2 marks)
+\item Print out the current file chosen (2 marks)
+\item Print the menu option chosen (1 mark)
+\item Print ONLY the menu option chosen when no file is chosen (user clicks ``Cancel'') (2 marks)
+\end{enumerate}
+
+\section{The Shape Class}
+Create a class called \textit{Shape.java} that extends the \textit{Polygon}. This class will hold all information pertaining to every shape we will make in this program. For this exercise, we will assume that all shapes we will make can be defined by one or more lines.\\
+\\
+Your Shape class must:
+\begin{itemize}
+\item Be able to store the type of item (``line'', ``square'' etc.)
+\item Be able to store the shape colour
+\item Be able to add and remove X and Y coordinates
+\item Be able to change the colour and stroke of each line
+\item Not be able to change the name of the shape
+\end{itemize}
+Your class will have two constructors and these will match the two constructors found in the \textit{Polygon} class:\\
+
+http://docs.oracle.com/javase/7/docs/api/java/awt/Polygon.html\\
+\\
+Think about how you might be able to use some of the functions provided by \textit{Polygon} instead of creating your own (primarily to do with adding and removing points).
+
+\subsection{Adding Your Shape to DrawPanel}
+In your \textit{DrawPanel} class, remove the code that draws a line from the paintComponent() method. In the same method, create a new line using your \textit{Shape} class. Once you have created your shape, add code that will draw the shape onto the DrawPanel. Methods exist in the Graphics package that may be able to assist you:\\
+
+http://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
+
+\subsection{Adding Multiple Shapes}
+
+
+\newpage
+\section{Reading Files - (5 marks)}
+Create a class called \textit{ShapeParser.java}. The constructor for this class does not have to do anything. You will need two other functions:
+\begin{enumerate}
+\item \textit{readFile} - Will take in a file name as a string, and open it for reading. It will also return an ArrayList of Shapes.
+\item \textit{writeFile} - Will take in a file name and an ArrayList of Shapes. It will write these Shapes to a new file, given by the supplied filename.
+\end{enumerate}
+
+\subsection{Modifying Draw}
+
+\subsection{Modifying DrawFrame}
+
+\subsection{Modifying DrawPanel}
+
+
+\newpage
+\section{Checking your Code (6 marks)}
+\textit{*Note: For each file - 1 mark each goes to comments, layout/structure and conforming to the function/variable naming standards. This does not include Draw.java as this has not been changed.}\\
+
+Review your code for layout, structure, comments and how it measures against the supplied standards. When you have completed this check, ensure it is uploaded to the Git repository (you should be committing your work once you have completed each class).\\
+
+Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 40}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
+
+\vspace{0.5cm}
+\section{Program Understanding}
+Do you know what we have tried to do with implementing {\bf listeners} in these classes? Create a document called \textit{Questions.txt} that lists questions of things you need clarification on. It may be useful to make this document before you start such that you can add and remove to it as you continue through these tasks.
+
+
+\end{document}
