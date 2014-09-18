@@ -16,46 +16,47 @@ Prepared by William Reid\\
 
 \vspace{0.5cm}
 \section{Modifying Class Functions}
-\subsection{Shape Class}
+\subsection{Shape Class - (4 marks)}
 Create a function called \textit{print()} that returns a string containing the information of the shape. It should be in the same format as it was read in:\\
 
 \textit{type: (X1, Y1), (X2, Y2), ... (Xn, Yn), colour}
 
-\subsection{DrawPanel Class}
+\subsection{DrawPanel Class - (2 marks)}
 Create a function (name of your choosing) that returns the list of shapes that the DrawPanel class has stored locally.
 
-\subsection{DrawFrame Class}
-Modify the constructor to get all the shapes stored in the DrawPanel and send them to the ShapeParser's \textit{writeFile()} method. Be careful where you place this code as incorrectly placing the function calls will cause the program to fail.\\
+\subsection{DrawFrame Class - (4 marks)}
+Modify the constructor to get all the shapes stored in the DrawPanel and send them to the ShapeParser's \textit{writeFile()} method {\bf (2 marks)}. Be careful where you place this code as incorrectly placing the function calls will cause the program to fail.\\
 
-Verify this works by adding code to the \textit{writeFile()} method that calls (and prints out the returned string) the \textit{print()} method we made earlier for each shape.
+Verify this works by adding code to the \textit{writeFile()} method that calls (and prints out the returned string) the \textit{print()} method we made earlier for each shape {\bf (2 marks)}.
 
-\section{Writing to File}
+\section{Writing to File - (7 marks)}
 Now that we can get the information of each shape, we want to write it out to a file. This can be done using Java's {\bf BufferedWriter} class. The following resource provides a good example of how to implement the required features:\\
 
 http://www.mkyong.com/java/how-to-write-to-file-in-java-bufferedwriter-example/
 
-\subsection{Checking the Output}
+\subsection{Checking the Output - (2 marks)}
 If you have correctly implemented the write methods, when you run the code you should obtain a new text file (that you may name whatever you wish) that looks identical to the sample file provided to you.
 
 
 \newpage
-\subsubsection{Testing - (2 marks)}
-If everything has been named and implemented correctly, the DrawPanel should now add Shapes to the drawing surface that have been specified in the text file. The code we implemented in the \textit{paintComponent()} method in {\bf Exercise 3.2} should already draw any shapes in the local data structure (that stores Shapes) onto the drawing surface. If this does not occur, find the source of the errors and report the process in a text file named \textit{debug.txt}\\
+\section{Choosing the File to Open/Save  - (8 marks)}
+Modify the code in the DrawFrame constructor that creates the ShapeParser object to assign it to a local variable, such that it can be accessed anywhere in the class. Do the same for the creation of the DrawPanel object and also remove any other code that calls the read/write functions of the ShapeParser {\bf (2 marks)}.\\
 
-To test your program further, try and pass the \textit{ShapeParser} a file that does not exist and see if it behaves as we expect.
+Modify the private listener classes that \textit{Open} and \textit{Save} files such that when these operations occur they:
+\begin{itemize}
+\item Open - pass the selected file to the \textit{readFile()} method of the ShapeParser object, then pass the returned list of shapes to the DrawPanel object {\bf (3 marks)}.
+\item Save - retrieves the shapes from the DrawPanel object and then passes them to the \textit{writeFile()} method of the ShapeParser object. The output file must be named ``shapes\_output.txt'' {\bf (3 marks)}.
+\end{itemize}
 
+\section{Testing - (10 marks)}
+Thoroughly test the new additions you have made. You may need to add additional functions and/or logic to ensure the program always behaves correctly. I will extensively test your program and attempt to break it, so ensure it does not crash when asked to do silly things (like write out the shapes contained in DrawPanel, but no shapes have been added).
 
-\newpage
-\section{Checking your Code (10 marks)}
-\textit{*Note: For each file - 1 mark each goes to comments, layout/structure and conforming to the function/variable naming standards. This does not include Draw.java as this has not been changed. DrawFrame.java and DrawPanel.java will not be marked on layout/structure}\\
+\section{Checking your Code (8 marks)}
+\textit{*Note: For each file - 1 mark each goes to comments/layout and conforming to the function/variable naming standards. This does not include Draw.java as this has not been changed.}\\
 
 Review your code for layout, structure, comments and how it measures against the supplied standards. When you have completed this check, ensure it is uploaded to the Git repository (you should be committing your work once you have completed each class).\\
 
-Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 90}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
-
-\vspace{0.5cm}
-\section{Program Understanding}
-Do you know what we have achieved in these classes? Do you understand how files are read in what we can achieve with exceptions? Create a document called \textit{Questions.txt} that lists questions of things you need clarification on. It may be useful to make this document before you start such that you can add and remove to it as you continue through these tasks.
+Notify me that you have finished and I will check your work, giving feedback on how things can be improved, including your total mark out of {\bf 45}. After I have given feedback you may be asked to modify the code (based on my comments). Once you have completed this and notified me, will move on to the next task. Good luck!
 
 
 \end{document}
