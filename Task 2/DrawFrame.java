@@ -71,11 +71,11 @@ public class DrawFrame extends JFrame{
 		JMenu file = new JMenu("File");
 		JMenu edit = new JMenu("Edit");
 
-		JMenuItem open = new JMenuItem("Open <Ctrl-o>");
-		JMenuItem save = new JMenuItem("Save <Ctrl-s>");
-		JMenuItem close = new JMenuItem("Close <Ctrl-x>");
+		JMenuItem open = new JMenuItem("Open");
+		JMenuItem save = new JMenuItem("Save");
+		JMenuItem close = new JMenuItem("Close");
 
-		JMenuItem new_menu_item = new JMenuItem("New <Ctrl-n>");
+		JMenuItem new_menu_item = new JMenuItem("New");
 		JMenuItem delete = new JMenuItem("Delete");
 
 		/* adding shortcuts to the menuitems (accelerator for Ctrl + key, mnemonics for Alt + key)*/
@@ -85,11 +85,11 @@ public class DrawFrame extends JFrame{
 		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
 
 		/* adding actionlisteners to each of the menuitems */
-		MyActionListener open_listener = new MyActionListener();
-		MyActionListener save_listener = new MyActionListener();
-		MyActionListener close_listener = new MyActionListener();
-		MyActionListener new_menu_item_listener = new MyActionListener();
-		MyActionListener delete_listener = new MyActionListener();
+		OpenListener open_listener = new OpenListener();
+		SaveListener save_listener = new SaveListener();
+		CloseListener close_listener = new CloseListener();
+		NewListener new_menu_item_listener = new NewListener();
+		DeleteListener delete_listener = new DeleteListener();
 		open.addActionListener(open_listener);
 		save.addActionListener(save_listener);
 		close.addActionListener(close_listener);
@@ -116,13 +116,52 @@ public class DrawFrame extends JFrame{
 
 	/*
 	 * Listener class that handles action events when menu
-	 * items are selected
+	 * item "OPEN" is selected
 	 */
-	private class MyActionListener implements ActionListener{
+	private class OpenListener implements ActionListener{
 		public void actionPerformed(ActionEvent action) {
-		//perform functions in here related to this action
-			System.out.println("Hello");
+			System.out.println("Open");
 		}
-	}	
+	}
+
+	/*
+	 * Listener class that handles action events when menu
+	 * item "SAVE" is selected
+	 */
+	private class SaveListener implements ActionListener{
+		public void actionPerformed(ActionEvent action) {
+			System.out.println("Save");
+		}
+	}
+
+	/*
+	 * Listener class that handles action events when menu
+	 * item "CLOSE" is selected
+	 */
+	private class CloseListener implements ActionListener{
+		public void actionPerformed(ActionEvent action) {
+			System.out.println("Close");
+		}
+	}
+
+	/*
+	 * Listener class that handles action events when menu
+	 * item "NEW" is selected
+	 */
+	private class NewListener implements ActionListener{
+		public void actionPerformed(ActionEvent action) {
+			System.out.println("New");
+		}
+	}
+
+	/*
+	 * Listener class that handles action events when menu
+	 * item "DELETE" is selected
+	 */
+	private class DeleteListener implements ActionListener{
+		public void actionPerformed(ActionEvent action) {
+			System.out.println("Delete");
+		}
+	}
 }
 
