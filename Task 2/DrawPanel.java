@@ -1,4 +1,4 @@
-/*
+/**
 * Author: Yi-Tung Huang a1678019
 * Date Created: 16/09/2014
 * Subsystem: DrawPanel is a subsystem of Draw. DrawPanel is a platform where objects
@@ -17,7 +17,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public class DrawPanel extends JPanel{
-	/*
+	/**
 	* constructor that creates DrawPanel object of default 
 	* size 800*600
 	*/
@@ -26,7 +26,7 @@ public class DrawPanel extends JPanel{
 		defaultSetup(800,600);
 	}
 
-	/*
+	/**
 	* constructor that creates DrawPanel object with size of
 	* input width and height
 	* @param width - width of the frame
@@ -37,23 +37,21 @@ public class DrawPanel extends JPanel{
 		defaultSetup(width,height);
 	}
 
-	/*
+	/**
 	* defaultSetup sets up the JPanel with default settings:
 	* blue background and size with the input width and height.
 	* @param - width
 	* @param - height
 	*/
 	private void defaultSetup(int width, int height){
-		MyMouseListener mouse_listener = new MyMouseListener();
-		MyMouseMotionListener mouse_motion_listener = new MyMouseMotionListener();
 		Color background = Color.yellow;
 		this.setBackground(background);
 		this.setSize(width,height);
-		this.addMouseListener(mouse_listener);
-		this.addMouseMotionListener(mouse_motion_listener);
+		this.addMouseListener(new MyMouseListener());
+		this.addMouseMotionListener(new MyMouseMotionListener());
 	}
 
-	/*
+	/**
 	* paintComponent draws a thick red line from (30,30) to 
 	* (150,150) on the JPanel object.
 	* @param - g - Graphics object to paint objects on.
@@ -66,13 +64,13 @@ public class DrawPanel extends JPanel{
 		g.drawLine(30,30,150,150);
 	}
 
-	/*
+	/**
 	* private MouseListener class that handles mouse events 
 	* where mouse is pressed, released, clicked on the DrawPanel
 	* and when the mouse enters and exits the DrawPanel
 	*/
 	private class MyMouseListener implements MouseListener{
-		/* 
+		/**
 		 *function called when mouse is pressed (returns the
 		 * coordinates of the mouse) 
 		 */
@@ -80,7 +78,7 @@ public class DrawPanel extends JPanel{
 			printClick("Mouse pressed",e);
 		}
 
-		/* 
+		/** 
 		 * function called when mouse is released (returns the
 		 * coordinates of the mouse)
 		 */
@@ -88,7 +86,7 @@ public class DrawPanel extends JPanel{
 			printClick("Mouse released",e);
 		}
 
-		/* 
+		/** 
 		 * function called when mouse is clicked (returns the
 		 * coordinates of the mouse) 
 		 */
@@ -96,7 +94,7 @@ public class DrawPanel extends JPanel{
 			printClick("Mouse clicked",e);
 		}
 
-		/* 
+		/** 
 		 * function called when mouse enters the panel (returns 
 		 * the coordinates of the mouse) 
 		 */
@@ -104,7 +102,7 @@ public class DrawPanel extends JPanel{
 			printClick("Mouse entered",e);
 		}
 
-		/* 
+		/** 
 		 * function called when mouse exits the panel (returns 
 		 * the coordinates of the mouse) 
 		 */
@@ -112,7 +110,7 @@ public class DrawPanel extends JPanel{
 			printClick("Mouse exited",e);
 		}
 
-		/* 
+		/** 
 		 * function that prints out the description and the 
 		 * coordinates of the mouse event. 
 		 */
@@ -124,12 +122,12 @@ public class DrawPanel extends JPanel{
 		}
 	}
 
-	/*
+	/**
 	 * private MouseMotionListener class that handles mouse events
 	 * when mouse moves with or without being pressed on the DrawPanel
 	 */
 	private class MyMouseMotionListener implements MouseMotionListener{
-		/* 
+		/** 
 		 * function called when mouse moved without clicking (returns 
 		 * the coordinates of the mouse) 
 		 */
@@ -137,7 +135,7 @@ public class DrawPanel extends JPanel{
 			printEvent("Mouse moved",e);
 		}
 
-		/* 
+		/** 
 		 * function called when mouse moved while being pressed (returns 
 		 * the coordinates of the mouse when it was pressed) 
 		 */
@@ -145,7 +143,7 @@ public class DrawPanel extends JPanel{
 			printEvent("Mouse dragged",e);
 		}
 
-		/* 
+		/** 
 		 * function that prints out the description and the 
 		 * coordinates of the mouse event. 
 		 */

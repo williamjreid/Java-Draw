@@ -1,4 +1,4 @@
-/*
+/**
 * Author: Yi-Tung Huang a1678019
 * Date Created: 16/09/2014
 * Subsystem: DrawFrame is a subsystem of Draw. DrawFrame is a window where the
@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
 
 
 public class DrawFrame extends JFrame{
-	/*
+	/**
 	* constructor that creates DrawFrame object of default
 	* size 800*600
 	*/
@@ -29,7 +29,7 @@ public class DrawFrame extends JFrame{
 		defaultSetup(800,600);
 	}
 
-	/*
+	/**
 	* constructor that creates DrawFrame object with size of
 	* input width and height
 	* @param width - width of the frame
@@ -41,7 +41,7 @@ public class DrawFrame extends JFrame{
 
 	}
 
-	/*
+	/**
 	* defaultSetup sets up the JFrame with default settings:
 	* black background and size with the input width and height.
 	* @param - width - width of the frame
@@ -60,7 +60,7 @@ public class DrawFrame extends JFrame{
 
 	}
 
-	/*
+	/**
 	* addMenus adds a menubar to the DrawFrame object with menus 
 	* File and Edit with menuitems Open, Save, Close and New, 
 	* Delete respectively.
@@ -78,35 +78,30 @@ public class DrawFrame extends JFrame{
 		JMenuItem new_menu_item = new JMenuItem("New");
 		JMenuItem delete = new JMenuItem("Delete");
 
-		/* adding shortcuts to the menuitems (accelerator for Ctrl + key, mnemonics for Alt + key)*/
+		/** adding shortcuts to the menuitems (accelerator for Ctrl + key, mnemonics for Alt + key)*/
 		open.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O,java.awt.Event.CTRL_MASK));
 		save.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S,java.awt.Event.CTRL_MASK));
 		close.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X,java.awt.Event.CTRL_MASK));
 		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
 
-		/* adding actionlisteners to each of the menuitems */
-		OpenListener open_listener = new OpenListener();
-		SaveListener save_listener = new SaveListener();
-		CloseListener close_listener = new CloseListener();
-		NewListener new_menu_item_listener = new NewListener();
-		DeleteListener delete_listener = new DeleteListener();
-		open.addActionListener(open_listener);
-		save.addActionListener(save_listener);
-		close.addActionListener(close_listener);
-		new_menu_item.addActionListener(new_menu_item_listener);
-		delete.addActionListener(delete_listener);
+		/** adding actionlisteners to each of the menuitems */
+		open.addActionListener(new OpenListener());
+		save.addActionListener(new SaveListener());
+		close.addActionListener(new CloseListener());
+		new_menu_item.addActionListener(new NewListener());
+		delete.addActionListener(new DeleteListener());
 
 
-		/* adding menus to menuBar */
+		/** adding menus to menuBar */
 		menuBar.add(file);
 		menuBar.add(edit);
 
-		/* adding menuItems to menu 'File' */
+		/** adding menuItems to menu 'File' */
 		file.add(open);
 		file.add(save);
 		file.add(close);
 
-		/* adding menuItems to menu 'Edit'*/
+		/** adding menuItems to menu 'Edit'*/
 		edit.add(new_menu_item);
 		edit.add(delete);
 
