@@ -1,4 +1,4 @@
-/*
+/**
 * Author: Yi-Tung Huang a1678019
 * Date Created: 16/09/2014
 * Subsystem: N/A
@@ -8,14 +8,14 @@
 * drawn inside the window.
 */
 public class Draw{
-	/*
+	/**
 	* constructor that creates a DrawFrame object.
 	*/
 	public Draw(){
 		DrawFrame frame = new DrawFrame();
 	}
 
-	/*
+	/**
 	* main driver function of Task 2
 	*/
 	public static void main(String[] args){

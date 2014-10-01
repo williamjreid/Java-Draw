@@ -1,3 +1,12 @@
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
 /**
 * Author: Yi-Tung Huang a1678019
 * Date Created: 16/09/2014
@@ -7,14 +16,6 @@
 * Description: DrawPanel is a class extended from JPanel. The draw functions 
 * of JPanel are overridden. DrawPanel is a platform where objects are drawn onto.
 */
-import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.BasicStroke;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 public class DrawPanel extends JPanel{
 	/**

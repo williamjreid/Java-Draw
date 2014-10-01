@@ -1,12 +1,3 @@
-/**
-* Author: Yi-Tung Huang a1678019
-* Date Created: 16/09/2014
-* Subsystem: DrawFrame is a subsystem of Draw. DrawFrame is a window where the
-* DrawPanel object is placed onto.
-* Date/Time updated: 18/09/2014
-* Description: DrawFrame is a class extended from JFrame. DrawFrame creates a
-* coloured window object where the DrawPanel object is placed onto.
-*/
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -18,6 +9,15 @@ import javax.swing.KeyStroke;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+* Author: Yi-Tung Huang a1678019
+* Date Created: 16/09/2014
+* Subsystem: DrawFrame is a subsystem of Draw. DrawFrame is a window where the
+* DrawPanel object is placed onto.
+* Date/Time updated: 18/09/2014
+* Description: DrawFrame is a class extended from JFrame. DrawFrame creates a
+* coloured window object where the DrawPanel object is placed onto.
+*/
 
 public class DrawFrame extends JFrame{
 	/**
