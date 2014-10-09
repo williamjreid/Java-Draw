@@ -1,3 +1,25 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+/**
+* Author: Yi-Tung Huang a1678019
+* Date Created: 1/10/2014
+* Subsystem: DrawFrame is a subsystem of Draw. DrawFrame is a window where the
+* DrawPanel object is placed onto.
+* Date/Time updated: 2/10/2014
+* Description: DrawFrame is a class extended from JFrame. DrawFrame creates a
+* coloured window object where the DrawPanel object is placed onto.
+*/
 public class DrawFrame extends JFrame{
 	/**
 	* constructor that creates DrawFrame object of default
@@ -28,12 +50,13 @@ public class DrawFrame extends JFrame{
 	* @param - height - height of the frame
 	*/
 	private void defaultSetup(int width, int height){
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE());
+		Color background = Color.black;
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(width,height);
-		this.setColor(Color.Cyan);
+		this.setBackground(background);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
-
+		this.addMenus();
 		this.getContentPane().add(new DrawPanel());
 	}
 
@@ -44,10 +67,113 @@ public class DrawFrame extends JFrame{
 	* Delete respectively.
 	*/
 	private void addMenus(){
-		
+	JMenuBar menuBar = new JMenuBar(); 
+		JMenu file = new JMenu("File");
+		JMenu edit = new JMenu("Edit");
+
+		JMenuItem open = new JMenuItem("Open");
+		JMenuItem save = new JMenuItem("Save");
+		JMenuItem close = new JMenuItem("Close");
+
+		JMenuItem new_menu_item = new JMenuItem("New");
+		JMenuItem delete = new JMenuItem("Delete");
+
+		/** adding shortcuts to the menuitems (accelerator for Ctrl + key, mnemonics for Alt + key)*/
+		open.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O,java.awt.Event.CTRL_MASK));
+		save.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S,java.awt.Event.CTRL_MASK));
+		close.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X,java.awt.Event.CTRL_MASK));
+		new_menu_item.setAccelerator(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N,java.awt.Event.CTRL_MASK));
+
+		/** adding actionlisteners to each of the menuitems */
+		open.addActionListener(new OpenListener());
+		save.addActionListener(new SaveListener());
+		close.addActionListener(new CloseListener());
+		new_menu_item.addActionListener(new NewListener());
+		delete.addActionListener(new DeleteListener());
+
+
+		/** adding menus to menuBar */
+		menuBar.add(file);
+		menuBar.add(edit);
+
+		/** adding menuItems to menu 'File' */
+		file.add(open);
+		file.add(save);
+		file.add(close);
+
+		/** adding menuItems to menu 'Edit'*/
+		edit.add(new_menu_item);
+		edit.add(delete);
+
+		this.setJMenuBar(menuBar);
 	}
 
 
+	/*
+	 * Listener class that handles action events when menu
+	 * item "OPEN" is selected
+	 */
+	private class OpenListener implements ActionListener{
+		public void actionPerformed(ActionEvent action){
+			System.out.println("Open");
+			JFileChooser chooser = new JFileChooser();
+			// tells user what files are available for selection: FileNameExtensionFilter(string description of files, string types of files)
+		    FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT file", "txt");
+		    chooser.setFileFilter(filter);
+		    int returnVal = chooser.showOpenDialog(null);
+		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+		    	System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
+    		}
+		}
+	}
 
 
+	/*
+	 * Listener class that handles action events when menu
+	 * item "SAVE" is selected
+	 */
+	private class SaveListener implements ActionListener{
+		public void actionPerformed(ActionEvent action){
+			System.out.println("Save");
+			JFileChooser chooser = new JFileChooser();
+			// tells user what files are available for selection: FileNameExtensionFilter(string description of files, string types of files)
+		    FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT file", "txt");
+		    chooser.setFileFilter(filter);
+		    int returnVal = chooser.showOpenDialog(null);
+		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+		    	System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
+    		}
+		}
+	}
+
+
+	/*
+	 * Listener class that handles action events when menu
+	 * item "CLOSE" is selected
+	 */
+	private class CloseListener implements ActionListener{
+		public void actionPerformed(ActionEvent action){
+			System.out.println("Close");
+		}
+	}
+
+	/**
+	 * Listener class that handles action events when menu
+	 * item "NEW" is selected
+	 */
+	private class NewListener implements ActionListener{
+		public void actionPerformed(ActionEvent action) {
+			System.out.println("New");
+		}
+	}
+
+	/**
+	 * Listener class that handles action events when menu
+	 * item "DELETE" is selected
+	 */
+	private class DeleteListener implements ActionListener{
+		public void actionPerformed(ActionEvent action) {
+			System.out.println("Delete");
+		}
+	}
 }
