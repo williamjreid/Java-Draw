@@ -54,9 +54,9 @@ public class DrawFrame extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(width,height);
 		this.setBackground(background);
+		this.addMenus();
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
-		this.addMenus();
 		this.getContentPane().add(new DrawPanel());
 	}
 

@@ -58,11 +58,24 @@ public class DrawPanel extends JPanel{
 	* @param - g - Graphics object to paint objects on.
 	*/
 	protected void paintComponent(Graphics g){
-		Color color = Color.red;
+		/*Color color = Color.red;
 		Graphics2D g2D = (Graphics2D) g;
 		g2D.setColor(color);
 		g2D.setStroke(new BasicStroke(10));
 		g.drawLine(30,30,150,150);
+		*/
+		int npoints = 100;
+		int[] xpoints = new int[npoints];
+		int[] ypoints = new int[npoints];
+
+		for (int i = 0 ; i < npoints; i++){
+			xpoints[i] = i;
+			ypoints[i] = i;
+		}
+
+		Shape test = new Shape(xpoints,ypoints,npoints);
+		g.drawPolygon(test);
+
 	}
 
 	/**
@@ -116,10 +129,10 @@ public class DrawPanel extends JPanel{
 		 * coordinates of the mouse event. 
 		 */
 		public void printClick(String event_description, MouseEvent e){
-			int x = e.getX();
+			/*int x = e.getX();
 			int y = e.getY();
 			String output = event_description + " at: ("+x+","+y+")";
-			System.out.println(output);
+			System.out.println(output);*/
 		}
 	}
 
@@ -133,7 +146,7 @@ public class DrawPanel extends JPanel{
 		 * the coordinates of the mouse) 
 		 */
 		public void mouseMoved(MouseEvent e){
-			printEvent("Mouse moved",e);
+			//printEvent("Mouse moved",e);
 		}
 
 		/** 
@@ -141,7 +154,7 @@ public class DrawPanel extends JPanel{
 		 * the coordinates of the mouse when it was pressed) 
 		 */
 		public void mouseDragged(MouseEvent e){
-			printEvent("Mouse dragged",e);
+			//printEvent("Mouse dragged",e);
 		}
 
 		/** 
@@ -149,10 +162,10 @@ public class DrawPanel extends JPanel{
 		 * coordinates of the mouse event. 
 		 */
 		public void printEvent(String event_description, MouseEvent e){
-			int x = e.getX();
+			/*int x = e.getX();
 			int y = e.getY();
 			String output = event_description+ " at: ("+x+","+y+")";
-			System.out.println(output);
+			System.out.println(output);*/
 		}
 	}
 }
