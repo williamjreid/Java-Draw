@@ -6,6 +6,7 @@ import java.awt.BasicStroke;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 /**
 * Author: Yi-Tung Huang a1678019
@@ -18,6 +19,7 @@ import java.awt.event.MouseMotionListener;
 */
 
 public class DrawPanel extends JPanel{
+	private ArrayList<Shape> shapeList = new ArrayList<Shape>();
 	/**
 	* constructor that creates DrawPanel object of default 
 	* size 800*600
@@ -58,31 +60,47 @@ public class DrawPanel extends JPanel{
 	* @param - g - Graphics object to paint objects on.
 	*/
 	protected void paintComponent(Graphics g){
-		//Color color = Color.red;
-		//Graphics2D g2D = (Graphics2D) g;
-		
-		//g2D.setStroke(new BasicStroke(10));
-		//g.drawLine(30,30,150,150);
-		
+		int size = shapeList.size();
+		if (size != 0){
+			Color colour;
+			for (int i = 0; i < size; i++){
+				colour = shapeList.get(i).getColour();
+				g.setColor(colour);
+				g.drawPolygon(shapeList.get(i));
+			}
+		}
+	}
+
+	public void addShapes(){
 		int npoints = 4;
 		int[] xpoints = new int[npoints];
 		int[] ypoints = new int[npoints];
-		xpoints[0] = 0;
-		xpoints[1] = 0;
-		xpoints[2] = 100;
-		xpoints[3] = 100;
+		xpoints[0] = 50;
+		xpoints[1] = 50;
+		xpoints[2] = 150;
+		xpoints[3] = 150;
 
-		ypoints[0] = 0;
-		ypoints[1] = 100;
-		ypoints[2] = 100;
-		ypoints[3] = 0;
+		ypoints[0] = 50;
+		ypoints[1] = 150;
+		ypoints[2] = 150;
+		ypoints[3] = 50;
 
+		Shape shape1 = new Shape(xpoints,ypoints,npoints);
+		
+		npoints = 4;
+		xpoints[0] = 200;
+		xpoints[1] = 200;
+		xpoints[2] = 400;
+		xpoints[3] = 400;
 
-		Shape test = new Shape(xpoints,ypoints,npoints);
-		Color color = test.getColour();
-		g.setColor(color);
-		g.drawPolygon(test);
+		ypoints[0] = 200;
+		ypoints[1] = 400;
+		ypoints[2] = 400;
+		ypoints[3] = 200;
 
+		Shape shape2 = new Shape(xpoints,ypoints,npoints);
+		shapeList.add(shape1);
+		shapeList.add(shape2);
 	}
 
 	/**
@@ -174,9 +192,5 @@ public class DrawPanel extends JPanel{
 			String output = event_description+ " at: ("+x+","+y+")";
 			System.out.println(output);*/
 		}
-	}
-
-	public void addShapes(){
-
 	}
 }

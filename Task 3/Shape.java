@@ -28,7 +28,7 @@ public class Shape extends Polygon{
 	*/
 	public Shape(int[] xpoints, int[] ypoints, int npoints){
 		super();
-		defaultSetup("untitled", "", xpoints,ypoints,npoints);
+		defaultSetup("untitled", "yellow", xpoints,ypoints,npoints);
 	}
 
 	/**
@@ -49,10 +49,6 @@ public class Shape extends Polygon{
 		    colour = (Color)field.get(null);
 		} catch (Exception e) {
 		    colour = Color.yellow; // Not defined
-		}
-
-		for (int i = 0; i < npoints; i++){
-			this.addPoint(xpoints[i], ypoints[i]);
 		}
 	}
 

@@ -50,7 +50,7 @@ public class DrawFrame extends JFrame{
 	* @param - height - height of the frame
 	*/
 	private void defaultSetup(int width, int height){
-		Color background = Color.black;
+		Color background = Color.yellow;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(width,height);
 		this.setBackground(background);
