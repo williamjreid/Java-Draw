@@ -58,22 +58,29 @@ public class DrawPanel extends JPanel{
 	* @param - g - Graphics object to paint objects on.
 	*/
 	protected void paintComponent(Graphics g){
-		/*Color color = Color.red;
-		Graphics2D g2D = (Graphics2D) g;
-		g2D.setColor(color);
-		g2D.setStroke(new BasicStroke(10));
-		g.drawLine(30,30,150,150);
-		*/
-		int npoints = 100;
+		//Color color = Color.red;
+		//Graphics2D g2D = (Graphics2D) g;
+		
+		//g2D.setStroke(new BasicStroke(10));
+		//g.drawLine(30,30,150,150);
+		
+		int npoints = 4;
 		int[] xpoints = new int[npoints];
 		int[] ypoints = new int[npoints];
+		xpoints[0] = 0;
+		xpoints[1] = 0;
+		xpoints[2] = 100;
+		xpoints[3] = 100;
 
-		for (int i = 0 ; i < npoints; i++){
-			xpoints[i] = i;
-			ypoints[i] = i;
-		}
+		ypoints[0] = 0;
+		ypoints[1] = 100;
+		ypoints[2] = 100;
+		ypoints[3] = 0;
+
 
 		Shape test = new Shape(xpoints,ypoints,npoints);
+		Color color = test.getColour();
+		g.setColor(color);
 		g.drawPolygon(test);
 
 	}
@@ -167,5 +174,9 @@ public class DrawPanel extends JPanel{
 			String output = event_description+ " at: ("+x+","+y+")";
 			System.out.println(output);*/
 		}
+	}
+
+	public void addShapes(){
+
 	}
 }

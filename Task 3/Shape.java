@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Polygon;
+import java.lang.reflect.Field;
+
 /**
 * Author: Yi-Tung Huang a1678019
 * Date Created: 17/10/2014
@@ -26,7 +28,7 @@ public class Shape extends Polygon{
 	*/
 	public Shape(int[] xpoints, int[] ypoints, int npoints){
 		super();
-		defaultSetup("untitled", Color.yellow, xpoints,ypoints,npoints);
+		defaultSetup("untitled", "", xpoints,ypoints,npoints);
 	}
 
 	/**
@@ -38,11 +40,19 @@ public class Shape extends Polygon{
 	* @param - ypoints - an array of y coordinates.
 	* @param - npoints - the number of valid points in the polygon.
 	*/
-	private void defaultSetup(String shape_type, Color shape_colour, int[] xpoints, int[] ypoints, int npoints){
+	private void defaultSetup(String shape_type, String shape_colour, int[] xpoints, int[] ypoints, int npoints){
 		String type = shape_type;
-		Color colour = shape_colour;
+		
+		/* converting string to colour */
+		try {
+		    Field field = Class.forName("java.awt.Color").getField(shape_colour);
+		    colour = (Color)field.get(null);
+		} catch (Exception e) {
+		    colour = Color.yellow; // Not defined
+		}
+
 		for (int i = 0; i < npoints; i++){
-			addPoint(xpoints[i], ypoints[i]);
+			this.addPoint(xpoints[i], ypoints[i]);
 		}
 	}
 
