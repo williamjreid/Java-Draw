@@ -52,6 +52,7 @@ public class DrawPanel extends JPanel{
 		this.setSize(width,height);
 		this.addMouseListener(new MyMouseListener());
 		this.addMouseMotionListener(new MyMouseMotionListener());
+		this.addShapes();
 	}
 
 	/**
@@ -86,7 +87,7 @@ public class DrawPanel extends JPanel{
 		ypoints[3] = 50;
 
 		Shape shape1 = new Shape(xpoints,ypoints,npoints);
-		
+
 		npoints = 4;
 		xpoints[0] = 200;
 		xpoints[1] = 200;

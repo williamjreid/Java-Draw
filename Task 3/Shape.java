@@ -48,7 +48,12 @@ public class Shape extends Polygon{
 		    Field field = Class.forName("java.awt.Color").getField(shape_colour);
 		    colour = (Color)field.get(null);
 		} catch (Exception e) {
-		    colour = Color.yellow; // Not defined
+		    colour = Color.yellow;
+		}
+
+		for (int i = 0; i < npoints; i++){
+			addPoint(xpoints[i], ypoints[i]);
+			this.addPoint(xpoints[i], ypoints[i]);
 		}
 	}
 
